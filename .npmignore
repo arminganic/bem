@@ -1,0 +1,14 @@
+# Ignore dist, node_modules, src, and tests
+dist/
+node_modules/
+src/
+tests/
+
+# Ignore config files
+.gitignore
+jest.config.mjs
+package-lock.json
+tsconfig.json
+
+# Optionally, exclude README.md if it's not needed
+# README.md
