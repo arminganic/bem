@@ -10,4 +10,9 @@ describe("bem function", () => {
     const generateClasses = bem("card", { dark: true });
     expect(generateClasses()).toBe("card card--dark");
   });
+
+  it("should return the block with one modifier when one string modifier is passed to the function", () => {
+    const generateClasses = bem("card", { size: "medium" });
+    expect(generateClasses()).toBe("card card--size-medium");
+  });
 });
