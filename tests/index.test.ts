@@ -20,4 +20,31 @@ describe("bem function", () => {
     const generateClasses = bem("card", { lines: 4 });
     expect(generateClasses()).toBe("card card--lines-4");
   });
+
+  it("should only return the element when no modifiers are passed to the function", () => {
+    const generateClasses = bem("card");
+    const classes = generateClasses("body");
+    expect(classes).toBe("card__body");
+  });
+
+  it("should return the element with one modifier when one boolean modifier is passed to the function", () => {
+    const generateClasses = bem("card");
+    expect(generateClasses("body", { dark: true })).toBe(
+      "card__body card__body--dark",
+    );
+  });
+
+  it("should return the element with one modifier when one string modifier is passed to the function", () => {
+    const generateClasses = bem("card");
+    expect(generateClasses("body", { size: "medium" })).toBe(
+      "card__body card__body--size-medium",
+    );
+  });
+
+  it("should return the element with one modifier when one number modifier is passed to the function", () => {
+    const generateClasses = bem("card");
+    expect(generateClasses("body", { lines: 4 })).toBe(
+      "card__body card__body--lines-4",
+    );
+  });
 });

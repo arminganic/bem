@@ -5,8 +5,12 @@ export function bem(
   blockModifiers?: BemModifiers,
 ): (element?: string, modifier?: BemModifiers) => string {
   return (element?: string, elementModifiers?: BemModifiers) => {
-    const blockModifiersStrings = generateWithModifiers(block, blockModifiers);
-    return blockModifiersStrings.join(" ");
+    if (!element) {
+      return generateWithModifiers(block, blockModifiers).join(" ");
+    }
+    return generateWithModifiers(`${block}__${element}`, elementModifiers).join(
+      " ",
+    );
   };
 }
 
