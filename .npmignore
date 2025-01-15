@@ -1,4 +1,5 @@
 # Ignore dist, node_modules, src, and tests
+.husky/
 dist/
 node_modules/
 src/
@@ -6,7 +7,9 @@ tests/
 
 # Ignore config files
 .gitignore
-jest.config.mjs
+.prettierignore
+.prettierrc
+jest.config.json
 package-lock.json
 tsconfig.json
 
