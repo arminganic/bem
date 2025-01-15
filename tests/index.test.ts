@@ -15,4 +15,9 @@ describe("bem function", () => {
     const generateClasses = bem("card", { size: "medium" });
     expect(generateClasses()).toBe("card card--size-medium");
   });
+
+  it("should return the block with one modifier when one number modifier is passed to the function", () => {
+    const generateClasses = bem("card", { lines: 4 });
+    expect(generateClasses()).toBe("card card--lines-4");
+  });
 });

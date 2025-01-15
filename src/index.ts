@@ -1,4 +1,4 @@
-type BemModifiers = Record<string, boolean | string>;
+type BemModifiers = Record<string, boolean | string | number>;
 
 export function bem(
   block: string,
@@ -6,8 +6,7 @@ export function bem(
 ): (element?: string, modifier?: BemModifiers) => string {
   return (element?: string, elementModifiers?: BemModifiers) => {
     const blockModifiersStrings = generateWithModifiers(block, blockModifiers);
-    const toReturn = [block, ...blockModifiersStrings];
-    return toReturn.join(" ");
+    return blockModifiersStrings.join(" ");
   };
 }
 
@@ -15,13 +14,14 @@ function generateWithModifiers(baseClass: string, modifiers?: BemModifiers) {
   if (!modifiers) {
     return [baseClass];
   }
-  return Object.entries(modifiers).map(([key, value]) => {
+  const baseClassModifiers = Object.entries(modifiers).map(([key, value]) => {
     if (typeof value === "boolean") {
       return `${baseClass}--${key}`;
     }
-    if (typeof value === "string") {
+    if (typeof value === "string" || typeof value === "number") {
       return `${baseClass}--${key}-${value}`;
     }
     return "";
   });
+  return [baseClass, ...baseClassModifiers];
 }
