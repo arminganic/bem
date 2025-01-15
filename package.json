@@ -1,5 +1,5 @@
 {
-  "name": "bem",
+  "name": "@arminganic/bem",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
