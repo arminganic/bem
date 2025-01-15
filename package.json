@@ -1,7 +1,7 @@
 {
   "name": "@arminganic/bem",
   "version": "0.0.1",
-  "description": "",
+  "description": "A utility for generating BEM class names with modifiers.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "commonjs",
@@ -11,9 +11,18 @@
     "test": "jest",
     "prepare": "husky"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "BEM",
+    "CSS",
+    "class-names",
+    "modifiers"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arminganic/bem"
+  },
+  "author": "Armin Ganic <armin.ganic@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "globals": "^15.14.0",
