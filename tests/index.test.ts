@@ -47,4 +47,16 @@ describe("bem function", () => {
       "card__body card__body--lines-4",
     );
   });
+
+  it("should only return elements when block modifiers were applied", () => {
+    const generateClasses = bem("card", { size: "medium" });
+    expect(generateClasses("body")).toBe("card__body");
+  });
+
+  it("should only return elements when block and element modifiers were applied", () => {
+    const generateClasses = bem("card", { size: "medium" });
+    expect(generateClasses("body", { lines: 4 })).toBe(
+      "card__body card__body--lines-4",
+    );
+  });
 });
